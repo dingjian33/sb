@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="gb2312"?>
+<module name="arapPrivateEJB">
+  <public>
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapBillPrivate</interface>
+      <implementation>nc.impl.arap.dj.ArapBillPrivateImpl</implementation>
+    </component>
+ 
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IAgiotagePrivate</interface>
+      <implementation>nc.impl.arap.agiotage.AgiotagePrivateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapVerifyLogPrivate</interface>
+      <implementation>nc.impl.arap.verifylog.ArapVerifyLogPrivateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IBadAccountPrivate</interface>
+      <implementation>nc.impl.arap.hz.BadAccountPrivateImpl</implementation>
+    </component>
+ 
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IFaControlPrivate</interface>
+      <implementation>nc.impl.arap.fa.FaControlPrivateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.ITermEndPrivate</interface>
+      <implementation>nc.impl.arap.termend.TermEndPrivateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IUnitAccountPrivate</interface>
+      <implementation>nc.impl.arap.unitaccount.UnitAccountPrivateImpl</implementation>
+    </component>    
+
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapAgeAnalysePrivate</interface>
+      <implementation>nc.impl.arap.report.ArapAgeAnalysePrivateImpl</implementation>
+    </component>        
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapAlarmPrivate</interface>
+      <implementation>nc.impl.arap.report.ArapAlarmPrivateImpl</implementation>
+    </component>    
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapBalanceQueryPrivate</interface>
+      <implementation>nc.impl.arap.report.ArapBalanceQueryPrivateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapFundReportPrivate</interface>
+      <implementation>nc.impl.arap.report.ArapFundReportPrivateImpl</implementation>
+    </component>    
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapGeneralLedgerPrivate</interface>
+      <implementation>nc.impl.arap.report.ArapGeneralLedgerPrivateImpl</implementation>
+    </component>       
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapListQueryPrivate</interface>
+      <implementation>nc.impl.arap.report.ArapListQueryPrivateImpl</implementation>
+    </component>  
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapParticularQueryPrivate</interface>
+      <implementation>nc.impl.arap.report.ArapParticularQueryPrivateImpl</implementation>
+    </component>      
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapPersonAprovePrivate</interface>
+      <implementation>nc.impl.arap.report.ArapPersonAprovePrivateImpl</implementation>
+    </component>   
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IEfficientPubMethod</interface>
+      <implementation>nc.impl.arap.report.EfficientPubMethodImpl</implementation>
+    </component>    
+
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapNorticePrivate</interface>
+      <implementation>nc.impl.arap.report.ArapNorticePrivateImpl</implementation>
+    </component>
+    
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapAdjustCasePrivate</interface>
+      <implementation>nc.impl.arap.djtz.ArapAdjustCasePrivateImpl</implementation>
+    </component>
+    
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapAdjustBillPrivate</interface>
+      <implementation>nc.impl.arap.dj.ArapAdjustBillPrivateImpl</implementation>
+    </component>
+    
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapDstlCasePrivate</interface>
+      <implementation>nc.impl.arap.badacc.ArapDstlCaseImpl</implementation>
+    </component>
+    
+     <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.badacc.IArapDstlCaseQuery</interface>
+      <implementation>nc.impl.arap.badacc.ArapDstlCaseQueryImpl</implementation>
+    </component>
+    
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.badacc.IArapBadAccDstlQuery</interface>
+      <implementation>nc.impl.arap.badacc.ArapBadAccDstlQueryImpl</implementation>
+    </component>
+    
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapBadAccDstlPrivate</interface>
+      <implementation>nc.impl.arap.prv.ArapBadAccDstlImpl</implementation>
+    </component>
+     <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IParamSettingPrivate</interface>
+      <implementation>nc.impl.arap.param.ParamSettingImpl</implementation>
+    </component> 
+    <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapManageReportPrivate</interface>
+      <implementation>nc.impl.arap.report.ArapManageReportPrivateImpl</implementation>
+    </component> 
+ <component priority="0" singleton="true" supportAlias="true"  remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapBankrecivePrivate</interface>
+      <implementation>nc.impl.arap.dj.ArapBankrecivePrivateImpl</implementation>
+    </component> 
+    <component priority="0" singleton="true" supportAlias="true" remote="true" tx="CMT">
+      <interface>nc.itf.arap.prv.IArapBalQryObjFieldPrivate</interface>
+      <implementation>nc.impl.arap.perfbal.ArapBalQryObjFieldPrivateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true" remote="true" tx="CMT">
+      <interface>nc.itf.arap.perfbal.IArapBalQryObjValuePrivate</interface>
+      <implementation>nc.impl.arap.perfbal.ArapBalQryObjValuePrivateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true" remote="true" tx="CMT">
+      <interface>nc.itf.arap.balance.IArapBalanceReCalc</interface>
+      <implementation>nc.impl.arap.balance.ArapBalanceReCalcImpl</implementation>
+    </component> 
+    <component priority="0" singleton="true" supportAlias="true" remote="true" tx="CMT">
+      <interface>nc.itf.arap.balance.IArapBalanceUpdate</interface>
+      <implementation>nc.impl.arap.balance.ArapBalanceUpdateImpl</implementation>
+    </component>
+    <component priority="0" singleton="true" supportAlias="true" remote="true" tx="CMT">
+      <interface>nc.itf.arap.perfbal.IArapBalQryObjFieldQuery</interface>
+      <implementation>nc.impl.arap.perfbal.ArapBalQryObjFieldQueryImpl</implementation>
+    </component> 
+     <component priority="0" singleton="true" supportAlias="true" remote="true" tx="NONE">
+      <interface>nc.itf.hzsb.IDapMsgVOConverter</interface>
+      <implementation>nc.impl.hzsb.convert.DapMsgVOImpl</implementation>
+    </component> 
+        <component priority="0" singleton="true" supportAlias="true" remote="true" tx="NONE">
+      <interface>nc.itf.hzsb.IVoucherFactory</interface>
+      <implementation>nc.impl.hzsb.voucherFactory.VoucherFactoryImpl</implementation>
+    </component> 
+     <component priority="0" singleton="true" supportAlias="true" remote="true" tx="NONE">
+      <interface>nc.itf.hzyb.IDapMsgVOConverter</interface>
+      <implementation>nc.impl.hzyb.convert.DapMsgVOImpl</implementation>
+    </component> 
+        <component priority="0" singleton="true" supportAlias="true" remote="true" tx="NONE">
+      <interface>nc.itf.hzyb.IVoucherFactory</interface>
+      <implementation>nc.impl.hzyb.voucherFactory.VoucherFactoryImpl</implementation>
+    </component> 
+  </public>
+  
+  <private>
+        <component name="ArapBalRecalCorpsCacheClusterListener" singleton="true">
+            <implementation>nc.impl.arap.balance.cache.ArapBalRecalCorpsCacheClusterListener</implementation>
+            <property name="filterClass">
+                <value>nc.impl.arap.balance.cache.FiArapBalCacheClusterMessageFilter</value>
+            </property>
+        </component>
+    </private>
+</module>
+

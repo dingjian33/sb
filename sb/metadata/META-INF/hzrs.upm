@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<module>
+
+	<public>
+
+
+	<component priority="0" singleton="true" remote="true" tx="CMT" supportAlias="false">
+      	<interface>nc.itf.agSync.SbAgVoucherSyncItf</interface>
+ 
+     	<implementation>nc.bs.hzsb.plugins.SdVoucherTask</implementation>
+ 
+   	</component>
+ 
+
+<component priority="0" singleton="true" remote="true" tx="CMT" supportAlias="false">
+      	<interface>nc.itf.agSync.YbAgVoucherSyncItf</interface>
+ 
+     	<implementation>nc.bs.hzyb.plugins.SdVoucherTask</implementation>
+ 
+   	</component>
+ 
+
+<component priority="0" singleton="true" remote="true" tx="CMT" supportAlias="false">
+      	<interface>nc.itf.agSync.JyAgVoucherSyncItf</interface>
+ 
+     	<implementation>nc.bs.hzjy.plugins.SdVoucherTask</implementation>
+ 
+   	</component>
+ 
+
+
+ 	</public>
+
+	<private>
+	
+</private>
+
+</module>

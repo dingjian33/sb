@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding='gb2312'?>
+<module name="arap">
+	<public>
+		<component accessProtected="false"  name="SBSD" remote="false" singleton="true" tx="NONE">
+			<implementation>nc.bs.sdVoucher.SbSdVoucher</implementation>
+		</component> 
+
+<component accessProtected="false"  name="YBSD" remote="false" singleton="true" tx="NONE">
+			<implementation>nc.bs.sdVoucher.YbSdVoucher</implementation>
+		</component> 
+<component accessProtected="false"  name="JYSD" remote="false" singleton="true" tx="NONE">
+			<implementation>nc.bs.sdVoucher.JySdVoucher</implementation>
+		</component> 
+
+
+	</public>
+</module>
