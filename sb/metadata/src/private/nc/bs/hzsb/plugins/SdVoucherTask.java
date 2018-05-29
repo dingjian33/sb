@@ -185,7 +185,7 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 				body.setPk_org_v(pk_org_v);
 				body.setOperatorid(pk_operator); // 设置制单人
 			    String issue1 = body.getIssue().substring(0,4);
-			    String issue2 = body.getIssue().substring(4);
+			    String issue2 = body.getIssue().substring(4,6);
 			    String issue3 = issue1+"-"+issue2+"-01";
 				body.setDcreatedate(new UFDate(issue3)); // 添加业务日期..经办日期
 				String orisubj = body.getFeeitem();
@@ -198,7 +198,7 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 				} catch (DAOException e) {
 					e.printStackTrace();
 				}
-				if ("165".equals(oriOpertype) && "404".equals(orisubj)) {
+				if ("165".equals(oriOpertype) && "4301".equals(orisubj)) {
 					body.setReserve4(pk_feesubj);
 					body.setFeeitem(null);
 					body.setReserve3(body.getFund());
@@ -228,8 +228,9 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 				// liuty-----
 				if (body.getAccno().equals("611")
 						&& (body.getOpertype().equals("100"))
-						&& (body.getFeeitemname().equals("本期实缴"))) {
+						&& (body.getFeeitemname().equals("单位缴纳"))) {
 					body.setReserve3(body.getFund());
+					
 				}
 			}
 		}
