@@ -3,6 +3,7 @@ package nc.bs.hzsb.plugins;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -26,7 +27,7 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 	/**
 	 * 
 	 */
-	public static String configFilePath = "modules/arap/META-INF/arap_hzsb1.properties";
+	public static String configFilePath = "modules/arap/META-INF/arap_hzsb.properties";
 
 	private static HashMap<String, String> login_inform = new HashMap<String, String>(); // 存储当前登录时的一些信息
 	private static String tableName = null; // "ad50";
@@ -94,31 +95,17 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 			Log.getInstance().info("发送方法执行完成");
 			// 获取凭证号
 			nc_voucher = GetPk.getPK_voucher(id);
-			if (nc_voucher.equals("")) {
-				for (int i = 0; i < 1; i++) {
-					Log.getInstance().info("第一次没有生成凭证号，再一次发送至会计平台");
-					fipVoucher.sendFipMsg(NCbillvo);
-					Log.getInstance().info("第二次发送方法执行完成");
-				}
-				nc_voucher = GetPk.getPK_voucher(id);
-			}
+			
 			Log.getInstance().info("=======================");
 			Log.getInstance().info("凭证号：" + nc_voucher);
-			Log.getInstance().info("凭证号：" + nc_voucher + "传入id： " + id);
-
-			if (nc_voucher != null && !nc_voucher.equals("")) {
-				// // 回写相关成功信息
-
-				String ts = UpdateVoucherInform(tableName, nc_voucher,
+			Log.getInstance().info("凭证号：" + nc_voucher + "传入id： " + id);	
+				// 回写相关成功信息
+			String ts = UpdateVoucherInform(tableName, nc_voucher,
 						nc.bs.hzsb.sql.UpdateInform.success, id);
 
-				json = " { \"successs\" : true, \"flag\" : \"1\" ,\"errorMessage\":null ,\"reserve5\" :"
-						+ ts + " ,\"nc_voucher\" :" + nc_voucher + " }";
-			} else {
-				json = " { \"successs\" : false, \"flag\" : "
-						+ flag
-						+ " ,\"errorMessage\":\"凭证未生成，凭证号为空,发送至会计平台时发生错误\" ,\"reserve5\" :null ,\"nc_voucher\" :null }";
-			}
+			json = " { \"successs\" : true, \"flag\" : \"0\" ,\"errorMessage\":null ,\"reserve5\" :"
+						+ ts + " ,\"voucherno\" : 临时单据，不回写凭证号 ！ }";
+		
 		} catch (Exception e) {
 			json = " { \"successs\" : false, \"flag\" : " + flag
 					+ " ,\"errorMessage\":" + e.toString()
@@ -174,6 +161,8 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 			hvo.setPk_org_v(pk_org_v);
 			hvo.setPk_busitype(pk_opertype);// 业务类型
 			hvo.setVbys1(bodys[0].getRemark()); // 用于将多条业务分录所对应的银行合并成一条记录时，在凭证模板上摘要索取字段（根据业务使用）
+			UFDouble sum = new UFDouble();
+			DecimalFormat df = new DecimalFormat("#.00");
 			for (SBNCBillBVO body : bodys) {
 				String oriOpertype = body.getOpertype();
 				body.setPrimaryKey(pk_billid);
@@ -206,6 +195,14 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 				} else {
 					body.setFeeitem(pk_feesubj);
 				}
+				
+				
+                  
+				if (body.getFund() == null) {
+					sum = sum.add(body.getFund());
+				} else {
+					sum = sum.add(body.getFund());					
+				}
 
 				// 辅助核算
 				if (body.getEnpprop() != null) {
@@ -233,7 +230,10 @@ public class SdVoucherTask implements SbAgVoucherSyncItf {
 					
 				}
 			}
+			
+			hvo.setVbys2(df.format(sum).toString());
 		}
+	
 		return billvos;
 	}
 

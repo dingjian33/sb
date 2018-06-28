@@ -258,24 +258,6 @@ public class SdVoucherTask implements YbAgVoucherSyncItf {
 						body.setBys3(null);
 					}
 				}
-				// 金额---指单据中钱总和
-				UFDouble sum = new UFDouble();
-
-				if (body.getBys4() == null) {
-					sum = sum.add(body.getMoney());
-				} else {
-					sum = sum.add(body.getBys4());
-					body.setMoney(new UFDouble()); // 清零
-				}
-
-				if (head.getOpertype().equals("204")) {
-					// 204业务产生负数的钱走的银行在贷方
-					if ((sum.compareTo(new UFDouble(0)) == -1)) {
-						bodys[0].setMoney(sum);
-					} else if ((sum.compareTo(new UFDouble(0)) == 1)) {
-						bodys[0].setMoney(sum);
-					}
-				}
 				// 如果存在408,508科目 2014.10.22 增加408校验
 				if (oriSubjCode.substring(0, 4).equals("5008")
 						|| oriSubjCode.substring(0, 4).equals("4008")) {
@@ -296,6 +278,24 @@ public class SdVoucherTask implements YbAgVoucherSyncItf {
 							|| oriSubjCode.equals("50010204"))// 5010202
 					{
 						body.setBys5(body.getMoney());
+					}
+				}
+				// 金额---指单据中钱总和
+				UFDouble sum = new UFDouble();
+
+				if (body.getBys4() == null) {
+					sum = sum.add(body.getMoney());
+				} else {
+					sum = sum.add(body.getBys4());
+					body.setMoney(new UFDouble()); // 清零
+				}
+
+				if (head.getOpertype().equals("204")) {
+					// 204业务产生负数的钱走的银行在贷方
+					if ((sum.compareTo(new UFDouble(0)) == -1)) {
+						bodys[0].setMoney(sum);
+					} else if ((sum.compareTo(new UFDouble(0)) == 1)) {
+						bodys[0].setMoney(sum);
 					}
 				}
 				// 辅助核算--基于D0003的单位属性（PK-1001A610000000000IWZ）
